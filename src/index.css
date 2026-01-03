@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #0e1323;
+  --color-navy-900: #1c204b;
+  --color-navy-800: #33397a;
+  --color-navy-200: #bbc0ff;
+  --color-orange-300: #ff8b64;
+  --color-purple-700: #7335d2;
+  --color-purple-600: #5747ea;
+  --color-purple-500: #7078c9;
+  --color-blue-300: #55c2e6;
+  --color-pink-400: #ff5e7d;
+  --color-green-400: #4bcf82;
+  --color-yellow-300: #f1c75b;
+  --color-grey-200: #d8d8d8;
+
+  --font-rubik: "Rubik", sans-serif;
+
+  --line-height-66: 4.125rem;
+  --line-height-47: 2.9375rem;
+  --line-height-38: 2.375rem;
+  --line-height-28: 1.75rem;
+  --line-height-21: 1.3125rem;
+  --line-height-18: 1.125rem;
+}
+
+.text-preset-1 {
+  @apply font-rubik font-light text-[3.5rem] leading-(--line-height-66);
+}
+
+.text-preset-2 {
+  @apply font-rubik font-light text-[2.5rem] leading-(--line-height-47);
+}
+
+.text-preset-3 {
+  @apply font-rubik font-light text-[2rem] leading-(--line-height-38);
+}
+
+.text-preset-4 {
+  @apply font-rubik font-light text-2xl leading-(--line-height-28);
+}
+
+.text-preset-5-medium {
+  @apply font-rubik font-medium text-lg leading-(--line-height-21);
+}
+
+.text-preset-5-regular {
+  @apply font-rubik font-normal text-lg leading-(--line-height-21);
+}
+
+.text-preset-6 {
+  @apply font-rubik font-normal text-[0.9375rem] leading-(--line-height-18);
+}
+
+.nav-btn--states:hover,
+.nav-btn--states:focus,
+.nav-btn--states:active {
+  @apply text-white;
+}
+
+.dot-states:hover,
+.dot-states:focus,
+.dot-states:active {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(7489%)
+    hue-rotate(178deg) brightness(98%) contrast(98%);
+}
