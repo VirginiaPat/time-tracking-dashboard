@@ -53,16 +53,17 @@ const appendActivity = (activity, timeframe) => {
   const previousLabel = getPreviousLabel(timeframe);
 
   const card = document.createElement("section");
+  card.setAttribute("aria-label", `"${config.title} activity"`);
   card.innerHTML = `  
-          <div aria-label="${config.title} activity" class="${config.bg} rounded-2xl overflow-hidden relative z-0">
-            <figure class="w-19.5 h-19.5">
+          <div class="${config.bg} rounded-2xl overflow-hidden relative z-0">
+            <div class="w-19.5 h-19.5">
   
               <img
                 class="absolute -top-2.75 right-4.75 -z-10"
                 src="${config.icon}"
                 alt=""
               />
-            </figure>       
+            </div>       
 
             <!-- blue container -->
             <div
@@ -70,7 +71,7 @@ const appendActivity = (activity, timeframe) => {
             >
               <!-- title and dots -->
               <div class="flex justify-between items-center">
-                <p class="text-preset-5-medium text-white">${activity.title}</p>
+                <h2 class="text-preset-5-medium text-white">${activity.title}</h2>
                 <button
                   type="button"
                   class="cursor-pointer dot-states" aria-label="Add activity"
@@ -122,12 +123,6 @@ const updateActiveButton = (activeBtn) => {
 
 // Update deactive buttons state-----------------------------
 const updateDeactiveButton = (deactiveBtn) => {
-  [btnDaily, btnWeekly, btnMonthly].forEach((btn) => {
-    btn.classList.add("text-white");
-    btn.classList.remove("text-purple-500");
-  });
-  deactiveBtn.classList.add("text-purple-500");
-  deactiveBtn.classList.remove("text-white");
   deactiveBtn.setAttribute("aria-pressed", "false");
   deactiveBtn.setAttribute("aria-selected", "false");
 };
