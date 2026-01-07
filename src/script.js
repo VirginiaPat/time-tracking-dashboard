@@ -52,9 +52,9 @@ const appendActivity = (activity, timeframe) => {
   const previousHours = activity.timeframes[timeframe].previous;
   const previousLabel = getPreviousLabel(timeframe);
 
-  const card = document.createElement("article");
+  const card = document.createElement("section");
   card.innerHTML = `  
-          <div class="${config.bg} rounded-2xl overflow-hidden relative z-0">
+          <div aria-label="${config.title} activity" class="${config.bg} rounded-2xl overflow-hidden relative z-0">
             <figure class="w-19.5 h-19.5">
   
               <img
@@ -117,6 +117,19 @@ const updateActiveButton = (activeBtn) => {
   activeBtn.classList.remove("text-purple-500");
   activeBtn.classList.add("text-white");
   activeBtn.setAttribute("aria-pressed", "true");
+  activeBtn.setAttribute("aria-selected", "true");
+};
+
+// Update deactive buttons state-----------------------------
+const updateDeactiveButton = (deactiveBtn) => {
+  [btnDaily, btnWeekly, btnMonthly].forEach((btn) => {
+    btn.classList.add("text-white");
+    btn.classList.remove("text-purple-500");
+  });
+  deactiveBtn.classList.add("text-purple-500");
+  deactiveBtn.classList.remove("text-white");
+  deactiveBtn.setAttribute("aria-pressed", "false");
+  deactiveBtn.setAttribute("aria-selected", "false");
 };
 
 // Initial load
@@ -124,6 +137,8 @@ if (!data) return;
 if (data) {
   populateDOM(data, currentTimeFrame);
   updateActiveButton(btnWeekly);
+  updateDeactiveButton(btnDaily);
+  updateDeactiveButton(btnMonthly);
 }
 
 // Event listeners
@@ -131,16 +146,22 @@ btnDaily.addEventListener("click", function () {
   currentTimeFrame = "daily";
   populateDOM(data, currentTimeFrame);
   updateActiveButton(btnDaily);
+  updateDeactiveButton(btnWeekly);
+  updateDeactiveButton(btnMonthly);
 });
 
 btnWeekly.addEventListener("click", function () {
   currentTimeFrame = "weekly";
   populateDOM(data, currentTimeFrame);
   updateActiveButton(btnWeekly);
+  updateDeactiveButton(btnDaily);
+  updateDeactiveButton(btnMonthly);
 });
 
 btnMonthly.addEventListener("click", function () {
   currentTimeFrame = "monthly";
   populateDOM(data, currentTimeFrame);
   updateActiveButton(btnMonthly);
+  updateDeactiveButton(btnDaily);
+  updateDeactiveButton(btnWeekly);
 });

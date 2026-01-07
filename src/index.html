@@ -56,13 +56,19 @@
             </p>
           </div>
         </div>
-        <nav class="pb-6.25 xl:pl-8.5 xl:pb-7.5">
+        <div
+          role="tablist"
+          aria-label="Timeframes Tabs"
+          class="pb-6.25 xl:pl-8.5 xl:pb-7.5"
+        >
           <ul
             class="flex justify-around md:gap-12.5 md:justify-center xl:flex-col xl:gap-5.25 xl:items-start"
           >
             <li>
               <button
                 id="btn-daily"
+                role="tab"
+                aria-controls="panel-daily"
                 type="button"
                 aria-label="Daily timeframe"
                 class="nav-btn--states text-preset-5-regular text-purple-500 cursor-pointer"
@@ -73,6 +79,8 @@
             <li>
               <button
                 id="btn-weekly"
+                role="tab"
+                aria-controls="panel-weekly"
                 type="button"
                 aria-label="Weekly timeframe"
                 class="nav-btn--states text-preset-5-regular text-purple-500 cursor-pointer"
@@ -83,6 +91,8 @@
             <li>
               <button
                 id="btn-monthly"
+                role="tab"
+                aria-controls="panel-monthly"
                 type="button"
                 aria-label="Monthly timeframe"
                 class="nav-btn--states text-preset-5-regular text-purple-500 cursor-pointer"
@@ -91,7 +101,7 @@
               </button>
             </li>
           </ul>
-        </nav>
+        </div>
       </header>
       <main
         id="activities-container"
