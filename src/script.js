@@ -72,7 +72,6 @@ const appendActivity = (activity, timeframe) => {
               <div class="flex justify-between items-center">
                 <p class="text-preset-5-medium text-white">${activity.title}</p>
                 <button
-                  id="btn-dots"
                   type="button"
                   class="cursor-pointer dot-states"
                 >
@@ -87,12 +86,11 @@ const appendActivity = (activity, timeframe) => {
                 class="flex justify-between items-center md:flex-col md:gap-2 md:items-start xl:pr-11.5 xl:pb-1.25"
               >
                 <p
-                  id="work-hours-cur"
                   class="font-rubik font-light text-[2rem] leading-(--line-height-38) text-white md:text-[3.5rem] md:leading-(--line-height-66)"
                 >
                   ${currentHours}hrs
                 </p>
-                <p id="work-hours-prev" class="text-preset-6 text-navy-200">${previousLabel}
+                <p class="text-preset-6 text-navy-200">${previousLabel}
                    - ${previousHours}hrs
                 </p>
               </div>
