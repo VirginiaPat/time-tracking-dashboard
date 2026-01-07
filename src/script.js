@@ -53,7 +53,7 @@ const appendActivity = (activity, timeframe) => {
   const previousLabel = getPreviousLabel(timeframe);
 
   const card = document.createElement("section");
-  card.setAttribute("aria-label", `"${config.title} activity"`);
+  card.setAttribute("aria-label", `${config.title} activity`);
   card.innerHTML = `  
           <div class="${config.bg} rounded-2xl overflow-hidden relative z-0">
             <div class="w-19.5 h-19.5">
