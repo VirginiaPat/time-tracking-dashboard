@@ -118,13 +118,11 @@ const updateActiveButton = (activeBtn) => {
   activeBtn.classList.remove("text-purple-500");
   activeBtn.classList.add("text-white");
   activeBtn.setAttribute("aria-pressed", "true");
-  activeBtn.setAttribute("aria-selected", "true");
 };
 
 // Update deactive buttons state-----------------------------
 const updateDeactiveButton = (deactiveBtn) => {
   deactiveBtn.setAttribute("aria-pressed", "false");
-  deactiveBtn.setAttribute("aria-selected", "false");
 };
 
 // Initial load
@@ -137,26 +135,25 @@ if (data) {
 }
 
 // Event listeners
-btnDaily.addEventListener("click", function () {
-  currentTimeFrame = "daily";
-  populateDOM(data, currentTimeFrame);
-  updateActiveButton(btnDaily);
-  updateDeactiveButton(btnWeekly);
-  updateDeactiveButton(btnMonthly);
-});
 
-btnWeekly.addEventListener("click", function () {
-  currentTimeFrame = "weekly";
-  populateDOM(data, currentTimeFrame);
-  updateActiveButton(btnWeekly);
-  updateDeactiveButton(btnDaily);
-  updateDeactiveButton(btnMonthly);
-});
+const buttons = [
+  { btn: btnDaily, timeframe: "daily" },
+  { btn: btnWeekly, timeframe: "weekly" },
+  { btn: btnMonthly, timeframe: "monthly" },
+];
 
-btnMonthly.addEventListener("click", function () {
-  currentTimeFrame = "monthly";
-  populateDOM(data, currentTimeFrame);
-  updateActiveButton(btnMonthly);
-  updateDeactiveButton(btnDaily);
-  updateDeactiveButton(btnWeekly);
+buttons.forEach(({ btn, timeframe }) => {
+  btn.addEventListener("click", () => {
+    currentTimeFrame = timeframe;
+    populateDOM(data, currentTimeFrame);
+
+    // Mark clicked button active, others inactive
+    buttons.forEach(({ btn: otherBtn }) => {
+      if (otherBtn === btn) {
+        updateActiveButton(otherBtn);
+      } else {
+        updateDeactiveButton(otherBtn);
+      }
+    });
+  });
 });
