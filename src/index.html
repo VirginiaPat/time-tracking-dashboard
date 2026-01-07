@@ -29,9 +29,7 @@
     >
       <header class="flex flex-col gap-6 bg-navy-900 rounded-2xl xl:gap-7">
         <!-- hidden div for screen reader users -->
-        <div class="hidden" aria-labelledby="time-tracking-dashboard">
-          <h1 id="time-tracking-dashboard">Time tracking dashboard</h1>
-        </div>
+        <h1 class="sr-only">Time tracking dashboard</h1>
         <!-- User  img and texts conatiner -->
         <div
           class="bg-purple-600 p-8.5 flex items-center gap-6 rounded-2xl xl:flex-col xl:gap-10 xl:items-start xl:pr-21 xl:pb-23"
@@ -59,31 +57,40 @@
           </div>
         </div>
         <nav class="pb-6.25 xl:pl-8.5 xl:pb-7.5">
-          <div
+          <ul
             class="flex justify-around md:gap-12.5 md:justify-center xl:flex-col xl:gap-5.25 xl:items-start"
           >
-            <button
-              id="btn-daily"
-              type="button"
-              class="nav-btn--states text-preset-5-regular text-purple-500 cursor-pointer"
-            >
-              Daily
-            </button>
-            <button
-              id="btn-weekly"
-              type="button"
-              class="nav-btn--states text-preset-5-regular text-purple-500 cursor-pointer"
-            >
-              Weekly
-            </button>
-            <button
-              id="btn-monthly"
-              type="button"
-              class="nav-btn--states text-preset-5-regular text-purple-500 cursor-pointer"
-            >
-              Monthly
-            </button>
-          </div>
+            <li>
+              <button
+                id="btn-daily"
+                type="button"
+                aria-label="Daily timeframe"
+                class="nav-btn--states text-preset-5-regular text-purple-500 cursor-pointer"
+              >
+                Daily
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-weekly"
+                type="button"
+                aria-label="Weekly timeframe"
+                class="nav-btn--states text-preset-5-regular text-purple-500 cursor-pointer"
+              >
+                Weekly
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-monthly"
+                type="button"
+                aria-label="Monthly timeframe"
+                class="nav-btn--states text-preset-5-regular text-purple-500 cursor-pointer"
+              >
+                Monthly
+              </button>
+            </li>
+          </ul>
         </nav>
       </header>
       <main
