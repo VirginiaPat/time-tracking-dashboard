@@ -59,21 +59,21 @@
             class="flex justify-around md:gap-12.5 md:justify-center xl:flex-col xl:gap-5.25 xl:items-start"
           >
             <button
-              id="nav-btn"
+              id="btn-daily"
               type="button"
               class="nav-btn--states text-preset-5-regular text-purple-500 cursor-pointer"
             >
               Daily
             </button>
             <button
-              id="nav-btn"
+              id="btn-weekly"
               type="button"
               class="nav-btn--states text-preset-5-regular text-purple-500 cursor-pointer"
             >
               Weekly
             </button>
             <button
-              id="nav-btn"
+              id="btn-monthly"
               type="button"
               class="nav-btn--states text-preset-5-regular text-purple-500 cursor-pointer"
             >
@@ -82,245 +82,10 @@
           </div>
         </nav>
       </header>
-      <main class="grid grid-cols-1 gap-6 md:grid-cols-3 xl:gap-8">
-        <!--  WORK container ----------------------------------------->
-        <article
-          id="work"
-          class="bg-orange-300 rounded-2xl overflow-hidden relative z-0"
-        >
-          <figure class="w-19.5 h-19.5">
-            <img
-              class="absolute -top-2.75 right-4.75 -z-10"
-              src="../images/icon-work.svg"
-              alt=""
-            />
-          </figure>
-
-          <!-- blue container -->
-          <div
-            class="bg-navy-900 flex flex-col gap-3.75 p-6 rounded-2xl -mt-10 xl:gap-6 xl:p-8.25 hover:bg-navy-800 z-10"
-          >
-            <!-- title and dots -->
-            <div class="flex justify-between items-center">
-              <p class="text-preset-5-medium text-white">Work</p>
-              <button
-                id="btn-dots"
-                type="button"
-                class="cursor-pointer dot-states"
-              >
-                <figure class="w-5.25 h-1.25">
-                  <img class="" src="../images/icon-ellipsis.svg" alt="" />
-                </figure>
-              </button>
-            </div>
-
-            <!-- hours and week data -->
-            <div
-              class="flex justify-between items-center md:flex-col md:gap-2 md:items-start xl:pr-11.5 xl:pb-1.25"
-            >
-              <p
-                id="work-hours-cur"
-                class="font-rubik font-light text-[2rem] leading-(--line-height-38) text-white md:text-[3.5rem] md:leading-(--line-height-66)"
-              >
-                32hrs
-              </p>
-              <p id="work-hours-prev" class="text-preset-6 text-navy-200">
-                Last Week - 36hrs
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <!--  PLAY container ----------------------------------------->
-        <article
-          id="play"
-          class="bg-blue-300 rounded-2xl overflow-hidden relative -z-20"
-        >
-          <figure class="w-19.5 h-19.5">
-            <img
-              class="absolute -top-2.75 right-4.75 -z-10"
-              src="../images/icon-play.svg"
-              alt=""
-            />
-          </figure>
-
-          <!-- blue container -->
-          <div
-            class="bg-navy-900 flex flex-col gap-3.75 p-6 rounded-2xl -mt-10 z-10 xl:gap-6 xl:p-8.25"
-          >
-            <!-- title and dots -->
-            <div class="flex justify-between items-center">
-              <p class="text-preset-5-medium text-white">Play</p>
-              <figure class="w-5.25 h-1.25">
-                <img src="../images/icon-ellipsis.svg" alt="" />
-              </figure>
-            </div>
-            <!-- hours and week data -->
-            <div
-              class="flex justify-between items-center md:flex-col md:gap-2 md:items-start xl:pr-11.5 xl:pb-1.25"
-            >
-              <p
-                class="font-rubik font-light text-[2rem] leading-(--line-height-38) text-white md:text-[3.5rem] md:leading-(--line-height-66)"
-              >
-                32hrs
-              </p>
-              <p class="text-preset-6 text-navy-200">Last Week - 36hrs</p>
-            </div>
-          </div>
-        </article>
-
-        <!--  STUDY container ----------------------------------------->
-        <article
-          id="study"
-          class="bg-pink-400 rounded-2xl overflow-hidden relative -z-20"
-        >
-          <figure class="w-19.5 h-19.5">
-            <img
-              class="absolute -top-2.75 right-4.75 -z-10"
-              src="../images/icon-study.svg"
-              alt=""
-            />
-          </figure>
-
-          <!-- blue container -->
-          <div
-            class="bg-navy-900 flex flex-col gap-3.75 p-6 rounded-2xl -mt-10 z-10 xl:gap-6 xl:p-8.25"
-          >
-            <!-- title and dots -->
-            <div class="flex justify-between items-center">
-              <p class="text-preset-5-medium text-white">Study</p>
-              <figure class="w-5.25 h-1.25">
-                <img src="../images/icon-ellipsis.svg" alt="" />
-              </figure>
-            </div>
-            <!-- hours and week data -->
-            <div
-              class="flex justify-between items-center md:flex-col md:gap-2 md:items-start xl:pr-11.5 xl:pb-1.25"
-            >
-              <p
-                class="font-rubik font-light text-[2rem] leading-(--line-height-38) text-white md:text-[3.5rem] md:leading-(--line-height-66)"
-              >
-                32hrs
-              </p>
-              <p class="text-preset-6 text-navy-200">Last Week - 36hrs</p>
-            </div>
-          </div>
-        </article>
-
-        <!--  EXERCISE container ----------------------------------------->
-        <article
-          id="exercise"
-          class="bg-green-400 rounded-2xl overflow-hidden relative -z-20"
-        >
-          <figure class="w-19.5 h-19.5">
-            <img
-              class="absolute top-0 right-4.75 -z-10"
-              src="../images/icon-exercise.svg"
-              alt=""
-            />
-          </figure>
-
-          <!-- blue container -->
-          <div
-            class="bg-navy-900 flex flex-col gap-3.75 p-6 rounded-2xl -mt-10 z-10 xl:gap-6 xl:p-8.25"
-          >
-            <!-- title and dots -->
-            <div class="flex justify-between items-center">
-              <p class="text-preset-5-medium text-white">Exercise</p>
-              <figure class="w-5.25 h-1.25">
-                <img src="../images/icon-ellipsis.svg" alt="" />
-              </figure>
-            </div>
-            <!-- hours and week data -->
-            <div
-              class="flex justify-between items-center md:flex-col md:gap-2 md:items-start xl:pr-11.5 xl:pb-1.25"
-            >
-              <p
-                class="font-rubik font-light text-[2rem] leading-(--line-height-38) text-white md:text-[3.5rem] md:leading-(--line-height-66)"
-              >
-                32hrs
-              </p>
-              <p class="text-preset-6 text-navy-200">Last Week - 36hrs</p>
-            </div>
-          </div>
-        </article>
-
-        <!--  SOCIAL container ----------------------------------------->
-        <article
-          id="social"
-          class="bg-purple-700 rounded-2xl overflow-hidden relative -z-20"
-        >
-          <figure class="w-19.5 h-19.5">
-            <img
-              class="absolute -top-3.75 right-2.75 -z-10"
-              src="../images/icon-social.svg"
-              alt=""
-            />
-          </figure>
-
-          <!-- blue container -->
-          <div
-            class="bg-navy-900 flex flex-col gap-3.75 p-6 rounded-2xl -mt-10 z-10 xl:gap-6 xl:p-8.25"
-          >
-            <!-- title and dots -->
-            <div class="flex justify-between items-center">
-              <p class="text-preset-5-medium text-white">Social</p>
-              <figure class="w-5.25 h-1.25">
-                <img src="../images/icon-ellipsis.svg" alt="" />
-              </figure>
-            </div>
-            <!-- hours and week data -->
-            <div
-              class="flex justify-between items-center md:flex-col md:gap-2 md:items-start xl:pr-11.5 xl:pb-1.25"
-            >
-              <p
-                class="font-rubik font-light text-[2rem] leading-(--line-height-38) text-white md:text-[3.5rem] md:leading-(--line-height-66)"
-              >
-                32hrs
-              </p>
-              <p class="text-preset-6 text-navy-200">Last Week - 36hrs</p>
-            </div>
-          </div>
-        </article>
-
-        <!--  SELF CARE container ----------------------------------------->
-        <article
-          id="self-care"
-          class="bg-yellow-300 rounded-2xl overflow-hidden relative -z-20"
-        >
-          <figure class="w-19.5 h-19.5">
-            <img
-              class="absolute -top-4 right-3 -z-10"
-              src="../images/icon-self-care.svg"
-              alt=""
-            />
-          </figure>
-
-          <!-- blue container -->
-          <div
-            class="bg-navy-900 flex flex-col gap-3.75 p-6 rounded-2xl -mt-10 z-10 xl:gap-6 xl:p-8.25"
-          >
-            <!-- title and dots -->
-            <div class="flex justify-between items-center">
-              <p class="text-preset-5-medium text-white">Self Care</p>
-              <figure class="w-5.25 h-1.25">
-                <img src="../images/icon-ellipsis.svg" alt="" />
-              </figure>
-            </div>
-            <!-- hours and week data -->
-            <div
-              class="flex justify-between items-center md:flex-col md:gap-2 md:items-start xl:pr-11.5 xl:pb-1.25"
-            >
-              <p
-                class="font-rubik font-light text-[2rem] leading-(--line-height-38) text-white md:text-[3.5rem] md:leading-(--line-height-66)"
-              >
-                32hrs
-              </p>
-              <p class="text-preset-6 text-navy-200">Last Week - 36hrs</p>
-            </div>
-          </div>
-        </article>
-      </main>
+      <main
+        id="activities-container"
+        class="grid grid-cols-1 gap-6 md:grid-cols-3 xl:gap-8"
+      ></main>
     </div>
 
     <footer>
