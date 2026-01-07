@@ -73,10 +73,10 @@ const appendActivity = (activity, timeframe) => {
                 <p class="text-preset-5-medium text-white">${activity.title}</p>
                 <button
                   type="button"
-                  class="cursor-pointer dot-states"
+                  class="cursor-pointer dot-states aria-label="Add activity"
                 >
                   <figure class="w-5.25 h-1.25">
-                    <img class="" src="${iconEllispsis}" alt="" />
+                    <img src="${iconEllispsis}" alt="" />
                   </figure>
                 </button>
               </div>
@@ -118,6 +118,7 @@ const updateActiveButton = (activeBtn) => {
   });
   activeBtn.classList.remove("text-purple-500");
   activeBtn.classList.add("text-white");
+  activeBtn.setAttribute("aria-pressed", "true");
 };
 
 // Initial load
