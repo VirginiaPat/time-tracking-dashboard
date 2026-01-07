@@ -74,10 +74,8 @@ const appendActivity = (activity, timeframe) => {
                 <button
                   type="button"
                   class="cursor-pointer dot-states" aria-label="Add activity"
-                >
-                  <figure class="w-5.25 h-1.25">
-                    <img src="${iconEllispsis}" alt="" />
-                  </figure>
+                >                  
+                    <img class="w-5.25 h-1.25" src="${iconEllispsis}" alt="" />                  
                 </button>
               </div>
 
