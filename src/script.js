@@ -144,7 +144,7 @@ try {
   if (activitiesContainer) {
     activitiesContainer.innerHTML = `
      <div class="col-span-full bg-navy-900 rounded-2xl p-8 text-center">
-        <p class="text-white text-xl mb-2">Unable to load dashboard</p>
+        <p class="text-red-400 text-xl mb-2">Unable to load dashboard</p>
         <p class="text-navy-200 text-sm">${error.message}</p>
       </div>
     `;
