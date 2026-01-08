@@ -2,9 +2,6 @@
 
 import data from "./data.json";
 
-console.log("Work: daily - current", data[0].timeframes.daily.current);
-console.log("Work: daily - previous", data[0].timeframes.daily.previous);
-
 // Import images (for Parcel 2)------------------------------------------
 const iconWork = new URL("../images/icon-work.svg", import.meta.url).href;
 const iconPlay = new URL("../images/icon-play.svg", import.meta.url).href;
@@ -14,7 +11,7 @@ const iconExercise = new URL("../images/icon-exercise.svg", import.meta.url)
 const iconSocial = new URL("../images/icon-social.svg", import.meta.url).href;
 const iconSelfCare = new URL("../images/icon-self-care.svg", import.meta.url)
   .href;
-const iconEllispsis = new URL("../images/icon-ellipsis.svg", import.meta.url)
+const iconEllipsis = new URL("../images/icon-ellipsis.svg", import.meta.url)
   .href;
 
 // Select elements-------------------------------------------------------
@@ -43,7 +40,7 @@ const getPreviousLabel = (timeframe) => {
     weekly: "Last Week",
     monthly: "Last Month",
   };
-  return labels[timeframe];
+  return labels[timeframe] || labels.weekly;
 };
 
 const appendActivity = (activity, timeframe) => {
@@ -58,7 +55,8 @@ const appendActivity = (activity, timeframe) => {
           <div class="${config.bg} rounded-2xl overflow-hidden relative z-0">
             <div class="w-19.5 h-19.5">
   
-              <img
+              <img 
+                aria-hidden="true"
                 class="absolute -top-2.75 right-4.75 -z-10"
                 src="${config.icon}"
                 alt=""
@@ -76,7 +74,7 @@ const appendActivity = (activity, timeframe) => {
                   type="button"
                   class="cursor-pointer dot-states" aria-label="Add activity"
                 >                  
-                    <img class="w-5.25 h-1.25" src="${iconEllispsis}" alt="" />                  
+                    <img class="w-5.25 h-1.25" src="${iconEllipsis}" alt="" />                  
                 </button>
               </div>
 
@@ -112,12 +110,10 @@ const populateDOM = (data, timeframe) => {
 // Update active button state-----------------------------
 const updateActiveButton = (activeBtn) => {
   [btnDaily, btnWeekly, btnMonthly].forEach((btn) => {
-    btn.classList.remove("text-white");
-    btn.classList.add("text-purple-500");
+    btn.classList.toggle("text-white", btn === activeBtn);
+    btn.classList.toggle("text-purple-500", btn !== activeBtn);
+    btn.setAttribute("aria-pressed", btn === activeBtn ? "true" : "false");
   });
-  activeBtn.classList.remove("text-purple-500");
-  activeBtn.classList.add("text-white");
-  activeBtn.setAttribute("aria-pressed", "true");
 };
 
 // Update deactive buttons state-----------------------------
@@ -125,17 +121,37 @@ const updateDeactiveButton = (deactiveBtn) => {
   deactiveBtn.setAttribute("aria-pressed", "false");
 };
 
-// Initial load
-if (!data) return;
-if (data) {
+// Initial load & error handlers----------------------------------------
+try {
+  if (!data) {
+    throw new Error("Failed to import data.json");
+  }
+
+  if (!Array.isArray(data)) {
+    throw new Error("Expected data to be an array");
+  }
+  if (data.length === 0) {
+    throw new Error("No activities found in data");
+  }
+
   populateDOM(data, currentTimeFrame);
   updateActiveButton(btnWeekly);
   updateDeactiveButton(btnDaily);
   updateDeactiveButton(btnMonthly);
+} catch (error) {
+  console.error("🚨 Dashboard initialization failed:", error);
+
+  if (activitiesContainer) {
+    activitiesContainer.innerHTML = `
+     <div class="col-span-full bg-navy-900 rounded-2xl p-8 text-center">
+        <p class="text-white text-xl mb-2">Unable to load dashboard</p>
+        <p class="text-navy-200 text-sm">${error.message}</p>
+      </div>
+    `;
+  }
 }
 
-// Event listeners
-
+// Event listeners-----------------------------
 const buttons = [
   { btn: btnDaily, timeframe: "daily" },
   { btn: btnWeekly, timeframe: "weekly" },
