@@ -87,7 +87,7 @@ const appendActivity = (activity, timeframe) => {
                 >
                   ${currentHours}hrs
                 </p>
-                <p class="text-preset-6 text-navy-200">${previousLabel}
+                <p class="text-preset-6 text-navy-200 text-right">${previousLabel}
                    - ${previousHours}hrs
                 </p>
               </div>
